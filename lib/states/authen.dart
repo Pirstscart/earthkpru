@@ -15,6 +15,9 @@ class Authen extends StatefulWidget {
 
 class _AuthenState extends State<Authen> {
   bool redEye = true;
+  
+  String? user;
+  String? pass;
 
   @override
   Widget build(BuildContext context) {
@@ -34,13 +37,17 @@ class _AuthenState extends State<Authen> {
                       widget: ShowForm(
                         hint: 'ชื่อผู้ใช้งาน: ',
                         iconData: Icons.person_outline,
-                        changeFunc: (String string) {},
+                        changeFunc: (p0) {
+                          user = p0.trim();
+                        },
                       )),
                   centerContent(boxConstraints,
                       widget: ShowForm(
                         hint: 'รหัสผ่าน: ',
                         iconData: Icons.lock_outline,
-                        changeFunc: (p0) {},
+                        changeFunc: (p0) {
+                          pass = p0.trim();
+                        },
                         obsecu: redEye,
                         redEyeFunc: () {
                           setState(() {
@@ -51,7 +58,13 @@ class _AuthenState extends State<Authen> {
                   centerContent(boxConstraints,
                       widget: ShowButton(
                         label: 'Login',
-                        pressFunc: () {},
+                        pressFunc: () {
+                          if ((user?.isEmpty??true)||(pass?.isEmpty??true)) {
+                            
+                          } else {
+                            
+                          }
+                        },
                       )),
                   centerContent(boxConstraints,
                       widget: ShowTextButton(
