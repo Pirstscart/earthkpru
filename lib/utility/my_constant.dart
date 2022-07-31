@@ -7,8 +7,18 @@ class MyConstant {
   static Color light = const Color.fromARGB(255, 227, 161, 63);
   static Color active = const Color.fromARGB(255, 204, 51, 171);
   static Color button = Colors.white;
+  static Color bgColor = const Color.fromARGB(255, 10, 154, 207);
 
   //method
+
+  BoxDecoration linearGradiant() {
+    return BoxDecoration(
+      gradient: LinearGradient(
+          colors: <Color>[MyConstant.dark, MyConstant.bgColor, MyConstant.button, MyConstant.button],
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter),
+    );
+  }
 
   BoxDecoration imageBox() {
     return const BoxDecoration(
@@ -46,6 +56,15 @@ class MyConstant {
   TextStyle h2Style() {
     return TextStyle(
       color: dark,
+      fontSize: 22,
+      fontWeight: FontWeight.w700,
+      fontFamily: 'Kanit',
+    );
+  }
+
+  TextStyle h2WhiteStyle() {
+    return TextStyle(
+      color: button,
       fontSize: 22,
       fontWeight: FontWeight.w700,
       fontFamily: 'Kanit',
